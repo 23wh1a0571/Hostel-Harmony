@@ -1,97 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DCCFE2"
+    android:background="#EDE1F1"
+    android:backgroundTint="#EDE1F1"
     tools:context=".MainActivity">
+
 
     <!-- Hostel Name -->
     <TextView
         android:id="@+id/hostel_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seethamma"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/seethamma"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#000000"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Image Section -->
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="328dp"
-        android:layout_height="160dp"
-        android:scaleType="centerCrop"
-        android:background="#CCCCCC"
-        app:srcCompat="@android:drawable/ic_menu_gallery"
-        app:layout_constraintTop_toBottomOf="@id/hostel_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"/>
 
     <!-- Dots Indicator -->
-    <LinearLayout
-        android:id="@+id/dots_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/image_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15dp">
-
-        <View
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:background="@android:color/darker_gray"
-            android:layout_margin="3dp"/>
-
-        <View
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:background="@android:color/darker_gray"
-            android:layout_margin="3dp"/>
-
-        <View
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:background="@android:color/darker_gray"
-            android:layout_margin="3dp"/>
-    </LinearLayout>
 
     <!-- Facilities Button -->
     <Button
         android:id="@+id/button_facilities"
-        android:layout_width="150dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="159dp"
+        android:layout_height="60dp"
         android:backgroundTint="#6A4CA2"
-        android:text="Facilities"
+        android:text="@string/facilities"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dots_indicator" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Floors Button -->
-    <Button
-        android:id="@+id/button_floors"
-        android:layout_width="150dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="28dp"
+
+    <Spinner
+        android:id="@+id/mySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="480dp"
         android:backgroundTint="#6A4CA2"
-        android:text="Floors ▼"
-        android:textColor="#FFFFFF"
+        android:dropDownSelector="@color/black"
+        android:foregroundTint="#694BA1"
+        android:popupBackground="#6A4CA2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_facilities" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="319dp"
+        android:layout_height="228dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.141" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
