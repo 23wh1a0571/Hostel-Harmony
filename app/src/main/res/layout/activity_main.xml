@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDE1F1">
@@ -13,11 +15,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hostels"
-            android:textSize="24sp"
-            android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:paddingBottom="20dp" />
+            android:paddingBottom="20dp"
+            android:text="Hostels"
+            android:textColor="#100F0F"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <!-- Hostel Items -->
         <LinearLayout
@@ -36,7 +39,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_hostel_placeholder"
+
                     android:layout_marginEnd="20dp"
                     android:background="@android:color/darker_gray"
                     android:padding="5dp" />
@@ -52,14 +55,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:text="Seethamma"
+                        android:textColor="#1D1919"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/Seethamma_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Hostel"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
@@ -74,7 +79,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_hostel_placeholder"
+
                     android:layout_marginEnd="20dp"
                     android:background="@android:color/darker_gray"
                     android:padding="5dp" />
@@ -90,14 +95,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:text="Samyutha"
+                        android:textColor="#161515"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/Samyutha_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Hostel"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
@@ -112,7 +119,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_hostel_placeholder"
+
                     android:layout_marginEnd="20dp"
                     android:background="@android:color/darker_gray"
                     android:padding="5dp" />
@@ -128,14 +135,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:text="Saradha"
+                        android:textColor="#161414"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/Saradha_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Hostel"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
@@ -150,7 +159,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_hostel_placeholder"
+
                     android:layout_marginEnd="20dp"
                     android:background="@android:color/darker_gray"
                     android:padding="5dp" />
@@ -166,14 +175,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:text="Saraswathi"
+                        android:textColor="#0F0D0D"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/Saraswathi_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Hostel"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
@@ -188,7 +199,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_hostel_placeholder"
+
                     android:layout_marginEnd="20dp"
                     android:background="@android:color/darker_gray"
                     android:padding="5dp" />
@@ -204,14 +215,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:text="Soudamini"
+                        android:textColor="#1A1414"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/Soudamini_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Hostel"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
@@ -226,7 +239,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_hostel_placeholder"
+
                     android:layout_marginEnd="20dp"
                     android:background="@android:color/darker_gray"
                     android:padding="5dp" />
@@ -246,10 +259,11 @@
                         android:layout_marginBottom="10dp" />
 
                     <Button
+                        android:id="@+id/Sravani_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Savithri"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
