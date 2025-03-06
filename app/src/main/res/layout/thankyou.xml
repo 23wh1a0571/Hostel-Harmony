@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5D4EF">
+
+    <!-- Rounded Rectangle Container -->
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="322dp"
+        android:layout_height="471dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/rounded_container"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="25dp">
+
+        <!-- Success Message -->
+
+        <!-- Button -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="197dp"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:text="Your room has been booked successfully!!"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="230dp"
+            android:layout_height="44dp"
+            android:text="You can check your profile in your profile"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#8E44AD"
+            android:text="Back to Profile"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</RelativeLayout>
