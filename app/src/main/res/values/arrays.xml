@@ -2,6 +2,7 @@
 <resources>
 
     <string-array name="floors">
+        <item>Floors</item>
         <item>Floor 1</item>
         <item>Floor 2</item>
         <item>Floor 3</item>

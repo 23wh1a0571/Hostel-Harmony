@@ -64,7 +64,12 @@ public class Mainpage extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = parent.getItemAtPosition(position).toString();
+
                 Toast.makeText(Mainpage.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
+                if (selectedItem.equals("Floor 1")) {
+                    Intent intent = new Intent(Mainpage.this, Seethamma_Floor.class);
+                    startActivity(intent);
+                }
             }
 
             @Override
