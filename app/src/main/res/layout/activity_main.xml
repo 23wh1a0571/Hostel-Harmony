@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDE1F1">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,30 +12,23 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Hostel Items -->
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="33dp"
-            android:layout_height="49dp"
-            app:srcCompat="@drawable/arrow" />
-
         <TextView
-            android:layout_width="114dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingBottom="20dp"
             android:text="Hostels"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="30sp"
+            android:textColor="#100F0F"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
+        <!-- Hostel Items -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Hostel 1 -->
+            <!-- Hostel 1 to 7 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,8 +39,9 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/seethamma"
+
                     android:layout_marginEnd="20dp"
+                    android:background="@android:color/darker_gray"
                     android:padding="5dp" />
 
                 <LinearLayout
@@ -60,29 +53,22 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
                         android:text="Seethamma"
+                        android:textColor="#1D1919"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="5dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Amount: XXX"
-                        android:textSize="16sp"
-                        android:textColor="#555555"
-                        android:layout_marginBottom="10dp" />
+                        android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/Seethamma_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Hostel"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Hostel 2 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,8 +79,9 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/saradha"
+
                     android:layout_marginEnd="20dp"
+                    android:background="@android:color/darker_gray"
                     android:padding="5dp" />
 
                 <LinearLayout
@@ -106,117 +93,22 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Saradha"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="5dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Amount: XXX"
-                        android:textSize="16sp"
-                        android:textColor="#555555"
-                        android:layout_marginBottom="10dp" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="View Hostel"
-                        android:backgroundTint="#7C4DFF"
-                        android:textColor="#FFFFFF" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Add 5 more hostels with appropriate names and images -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="25dp"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/saraswathi"
-                    android:layout_marginEnd="20dp"
-                    android:padding="5dp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Saraswathi"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="5dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Amount: XXX"
-                        android:textSize="16sp"
-                        android:textColor="#555555"
-                        android:layout_marginBottom="10dp" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="View Hostel"
-                        android:backgroundTint="#7C4DFF"
-                        android:textColor="#FFFFFF" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="25dp"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/samyutha"
-                    android:layout_marginEnd="20dp"
-                    android:padding="5dp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
                         android:text="Samyutha"
+                        android:textColor="#161515"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="5dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Amount: XXX"
-                        android:textSize="16sp"
-                        android:textColor="#555555"
-                        android:layout_marginBottom="10dp" />
+                        android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/Samyutha_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Hostel"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -227,8 +119,9 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/saradha"
+
                     android:layout_marginEnd="20dp"
+                    android:background="@android:color/darker_gray"
                     android:padding="5dp" />
 
                 <LinearLayout
@@ -240,27 +133,22 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Soudhamani"
+                        android:layout_marginBottom="10dp"
+                        android:text="Saradha"
+                        android:textColor="#161414"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="5dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Amount: XXX"
-                        android:textSize="16sp"
-                        android:textColor="#555555"
-                        android:layout_marginBottom="10dp" />
+                        android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/Saradha_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Hostel"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -271,8 +159,9 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/saradha"
+
                     android:layout_marginEnd="20dp"
+                    android:background="@android:color/darker_gray"
                     android:padding="5dp" />
 
                 <LinearLayout
@@ -284,27 +173,22 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Savithri"
+                        android:layout_marginBottom="10dp"
+                        android:text="Saraswathi"
+                        android:textColor="#0F0D0D"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="5dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Amount: XXX"
-                        android:textSize="16sp"
-                        android:textColor="#555555"
-                        android:layout_marginBottom="10dp" />
+                        android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/Saraswathi_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Hostel"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -315,8 +199,49 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/sravani"
+
                     android:layout_marginEnd="20dp"
+                    android:background="@android:color/darker_gray"
+                    android:padding="5dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Soudamini"
+                        android:textColor="#1A1414"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/Soudamini_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="25dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+
+                    android:layout_marginEnd="20dp"
+                    android:background="@android:color/darker_gray"
                     android:padding="5dp" />
 
                 <LinearLayout
@@ -331,21 +256,14 @@
                         android:text="Sravani"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="5dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Amount: $XXX"
-                        android:textSize="16sp"
-                        android:textColor="#555555"
                         android:layout_marginBottom="10dp" />
 
                     <Button
+                        android:id="@+id/Sravani_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View Hostel"
                         android:backgroundTint="#7C4DFF"
+                        android:text="View Hostel"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
