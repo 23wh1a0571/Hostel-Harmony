@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#DCCFE2"
+    android:id="@+id/floor1">
 
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#EDE1F1">
 
 <!-- Available and Booked Legend at Top -->
 
@@ -20,50 +20,50 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="64dp"
-        android:layout_marginEnd="92dp"
+        android:layout_marginEnd="62dp"
         android:layout_marginBottom="62dp"
         android:background="#FFFFFF" />
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentBottom="true"
-    android:layout_marginStart="104dp"
-    android:layout_marginTop="624dp"
-    android:layout_marginEnd="129dp"
-    android:layout_marginBottom="86dp"
-    android:orientation="horizontal">
-
-    <TextView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="#FFF5CC" />
-
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Available "
-        android:textColor="#000000"
-        android:textSize="14sp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="645dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginBottom="65dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFF5CC" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Available "
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="#D3D3D3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Booked "
+            android:textColor="#000000"
+            android:textSize="14sp" />
+    </LinearLayout>
 
     <TextView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="20dp"
-        android:background="#D3D3D3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" Booked "
-        android:textColor="#000000"
-        android:textSize="14sp" />
-</LinearLayout>
-
-<TextView
     android:id="@+id/title"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -100,8 +100,8 @@
         android:layout_row="5"
         android:layout_column="1"
         android:layout_margin="15dp"
-        android:background="#FFF5CC"
-        android:text="101"
+        android:backgroundTint="#D3D3D3"
+        android:text="107"
         android:textColor="#000000"
         android:textStyle="bold" />
 
@@ -111,10 +111,11 @@
         android:layout_row="0"
         android:layout_column="0"
         android:layout_margin="15dp"
-        android:background="#D3D3D3"
+        android:backgroundTint="#D3D3D3"
         android:text="101"
         android:textColor="#000000"
         android:textStyle="bold" />
+
 
     <Button
         android:id="@+id/button3"
@@ -123,8 +124,8 @@
         android:layout_row="1"
         android:layout_column="1"
         android:layout_margin="15dp"
-        android:background="#FFF5CC"
-        android:text="101"
+        android:backgroundTint="#FFF5CC"
+        android:text="111"
         android:textColor="#000000"
         android:textStyle="bold" />
 
@@ -135,8 +136,8 @@
         android:layout_row="2"
         android:layout_column="1"
         android:layout_margin="15dp"
-        android:background="#FFF5CC"
-        android:text="101"
+        android:backgroundTint="#FFF5CC"
+        android:text="110"
         android:textColor="#000000"
         android:textStyle="bold" />
 
@@ -147,8 +148,8 @@
         android:layout_row="3"
         android:layout_column="1"
         android:layout_margin="15dp"
-        android:background="#FFF5CC"
-        android:text="101"
+        android:backgroundTint="#FFF5CC"
+        android:text="109"
         android:textColor="#000000"
         android:textStyle="bold" />
 
@@ -159,8 +160,8 @@
         android:layout_row="1"
         android:layout_column="0"
         android:layout_margin="15dp"
-        android:background="#FFF5CC"
-        android:text="101"
+        android:backgroundTint="#FFF5CC"
+        android:text="102"
         android:textColor="#000000"
         android:textStyle="bold" />
 
@@ -171,8 +172,8 @@
         android:layout_row="2"
         android:layout_column="0"
         android:layout_margin="15dp"
-        android:background="#FFF5CC"
-        android:text="101"
+        android:backgroundTint="#FFF5CC"
+        android:text="103"
         android:textColor="#000000"
         android:textStyle="bold" />
 
@@ -183,8 +184,8 @@
         android:layout_row="3"
         android:layout_column="0"
         android:layout_margin="15dp"
-        android:background="#FFF5CC"
-        android:text="101"
+        android:backgroundTint="#FFF5CC"
+        android:text="104"
         android:textColor="#000000"
         android:textStyle="bold" />
 
@@ -195,8 +196,8 @@
         android:layout_row="4"
         android:layout_column="0"
         android:layout_margin="15dp"
-        android:background="#FFF5CC"
-        android:text="101"
+        android:backgroundTint="#FFF5CC"
+        android:text="105"
         android:textColor="#000000"
         android:textStyle="bold" />
 
@@ -207,8 +208,8 @@
         android:layout_row="4"
         android:layout_column="1"
         android:layout_margin="15dp"
-        android:background="#FFF5CC"
-        android:text="101"
+        android:backgroundTint="#FFF5CC"
+        android:text="108"
         android:textColor="#000000"
         android:textStyle="bold" />
 
@@ -219,8 +220,8 @@
         android:layout_row="5"
         android:layout_column="0"
         android:layout_margin="15dp"
-        android:background="#FFF5CC"
-        android:text="101"
+        android:backgroundTint="#FFF5CC"
+        android:text="106"
         android:textColor="#000000"
         android:textStyle="bold" />
 
@@ -233,7 +234,7 @@
     android:layout_below="@id/container"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="30dp"
-    android:background="#8E44AD"
+    android:backgroundTint="#8E44AD"
     android:text="Request"
     android:textColor="#FFFFFF"
     android:textSize="16sp"
