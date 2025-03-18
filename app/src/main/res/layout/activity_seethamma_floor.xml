@@ -94,7 +94,7 @@ android:background="#DCCFE2"
     android:rowCount="6">
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/room7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="5"
@@ -106,6 +106,7 @@ android:background="#DCCFE2"
         android:textStyle="bold" />
 
     <Button
+        android:id="@+id/room1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="0"
@@ -118,7 +119,7 @@ android:background="#DCCFE2"
 
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/room11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="1"
@@ -130,7 +131,7 @@ android:background="#DCCFE2"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/room10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="2"
@@ -142,7 +143,7 @@ android:background="#DCCFE2"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/room9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="3"
@@ -154,7 +155,7 @@ android:background="#DCCFE2"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/room2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="1"
@@ -166,7 +167,7 @@ android:background="#DCCFE2"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/room3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="2"
@@ -178,7 +179,7 @@ android:background="#DCCFE2"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/room4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="3"
@@ -190,7 +191,7 @@ android:background="#DCCFE2"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/room5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="4"
@@ -202,7 +203,7 @@ android:background="#DCCFE2"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/room8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="4"
@@ -214,7 +215,7 @@ android:background="#DCCFE2"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/room6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="5"
@@ -226,18 +227,5 @@ android:background="#DCCFE2"
         android:textStyle="bold" />
 
 </GridLayout>
-
-<Button
-    android:id="@+id/request_button"
-    android:layout_width="167dp"
-    android:layout_height="50dp"
-    android:layout_below="@id/container"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="30dp"
-    android:backgroundTint="#8E44AD"
-    android:text="Request"
-    android:textColor="#FFFFFF"
-    android:textSize="16sp"
-    android:textStyle="bold" />
 
 </RelativeLayout>

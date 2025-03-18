@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ import java.util.List;
 
 public class Mainpage extends AppCompatActivity {
     private ImageButton back;
+    private Button facility;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,18 +46,22 @@ public class Mainpage extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        //Facility Button
+        facility = findViewById(R.id.button_facilities);
+        facility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Mainpage.this, Seethamma_Facilities.class);
+                startActivity(i);
+            }
+        });
 
-
+        //Floors Dropdown
         Spinner spinner = findViewById(R.id.mySpinner);
-
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item,
                 R.id.spinner_text, getResources().getStringArray(R.array.floors));
 
-
         adapter.setDropDownViewResource(R.layout.spinner_item);
-
-
 
         spinner.setAdapter(adapter);
 
@@ -70,6 +76,19 @@ public class Mainpage extends AppCompatActivity {
                     Intent intent = new Intent(Mainpage.this, Seethamma_Floor.class);
                     startActivity(intent);
                 }
+                else if(selectedItem.equals("Floor 2")) {
+                    Intent intent = new Intent(Mainpage.this, Seethamma_floor2.class);
+                    startActivity(intent);
+                }
+                else if(selectedItem.equals("Floor 3")) {
+                    Intent intent = new Intent(Mainpage.this, Seethamma_floor3.class);
+                    startActivity(intent);
+                }
+                else if(selectedItem.equals("Ground Floor")) {
+                    Intent intent = new Intent(Mainpage.this, Seethamma_Ground.class);
+                    startActivity(intent);
+                }
+
             }
 
             @Override
@@ -77,6 +96,8 @@ public class Mainpage extends AppCompatActivity {
 
             }
         });
+
+        //Scrolling images
         ViewPager2 viewPager = findViewById(R.id.viewPager);
 
         // Add images from drawable

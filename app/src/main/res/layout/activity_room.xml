@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCCFE2"
+    android:id="@+id/RoomHostel">
+
+
+
+    <!-- Available and Booked Legend at Top -->
+
+    <!-- White Rectangular Box -->
+    <View
+        android:id="@+id/container"
+        android:layout_width="223dp"
+        android:layout_height="394dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="200dp"
+        android:background="#FFFFFF" />
+
+    <!-- Title -->
+
+    <!-- Underline -->
+
+    <!-- Berth Layout with Buttons -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="126dp"
+        android:layout_marginTop="503dp"
+        android:layout_marginEnd="107dp"
+        android:layout_marginBottom="208dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFF5CC" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Available "
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="#D3D3D3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Booked "
+            android:textColor="#000000"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Berth Availability Legend at Bottom (Inside White Background) -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="169dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="126dp"
+        android:layout_marginBottom="648dp"
+        android:text="Room No:101"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="118dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="315dp"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <Button
+            android:layout_width="59dp"
+            android:layout_height="90dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="#FFF5CC"
+            android:text="L1"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="61dp"
+            android:layout_height="90dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="#FFF5CC"
+            android:text="U1"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="57dp"
+            android:layout_height="90dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="#FFF5CC"
+            android:text="L2"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="61dp"
+            android:layout_height="90dp"
+            android:layout_margin="15dp"
+            android:backgroundTint="#D3D3D3"
+            android:text="U2"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:layout_alignBottom="@id/container">
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFF5CC" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Available "
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="#D3D3D3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Booked "
+            android:textColor="#000000"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Request Button with Rectangle Shape -->
+    <Button
+        android:id="@+id/request_button"
+        android:layout_width="167dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="#8E44AD"
+        android:text="Request"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="110dp"
+        android:text="Request" />
+
+</RelativeLayout>

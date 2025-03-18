@@ -13,6 +13,21 @@
         android:theme="@style/Theme.Hostel"
         tools:targetApi="31">
         <activity
+            android:name=".Room"
+            android:exported="false" />
+        <activity
+            android:name=".Seethamma_Facilities"
+            android:exported="false" />
+        <activity
+            android:name=".Seethamma_Ground"
+            android:exported="false" />
+        <activity
+            android:name=".Seethamma_floor3"
+            android:exported="false" />
+        <activity
+            android:name=".Seethamma_floor2"
+            android:exported="false" />
+        <activity
             android:name=".Seethamma_Floor"
             android:exported="false" />
         <activity
