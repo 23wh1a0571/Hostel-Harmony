@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_student"
+        android:title="Student Login"
+        app:titleTextAppearance="@style/MenuTextStyle"/>
+
+    <item
+        android:id="@+id/nav_admin"
+        android:title="Admin Login"
+        app:titleTextAppearance="@style/MenuTextStyle"/>
+</menu>

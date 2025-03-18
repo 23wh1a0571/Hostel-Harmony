@@ -3,6 +3,8 @@
     <string name="seethamma">Seethamma</string>
     <string name="facilities">Facilities</string>
     <string name="view_hostel">View Hostel</string>
+    <string name="navigation_drawer_open">Open Menu</string>
+    <string name="navigation_drawer_close">Close Menu</string>
 
 
 </resources>
