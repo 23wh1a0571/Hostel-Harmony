@@ -12,31 +12,31 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class StudentLogin extends AppCompatActivity {
+public class StudentRegister extends AppCompatActivity {
     private ImageButton back;
-    private Button reg;
+    private Button log;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_student_login);
+        setContentView(R.layout.activity_student_register);
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(StudentLogin.this, MainActivity.class);
+                Intent i = new Intent(StudentRegister.this, StudentLogin.class);
                 startActivity(i);
             }
         });
-        reg = findViewById(R.id.register);
-        reg.setOnClickListener(new View.OnClickListener() {
+        log = findViewById(R.id.btnLogin);
+        log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(StudentLogin.this, StudentRegister.class);
+                Intent i = new Intent(StudentRegister.this, StudentLogin.class);
                 startActivity(i);
             }
         });
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.slogin), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.reg), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
