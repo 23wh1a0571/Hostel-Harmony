@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "159661493083",
+    "project_id": "hostelharmony-a674c",
+    "storage_bucket": "hostelharmony-a674c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159661493083:android:7c2ac8c845b692b08be87e",
+        "android_client_info": {
+          "package_name": "com.example.hostel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjkFknP9o6WveURAw2cUZyywKpyTPFyIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
