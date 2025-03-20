@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class HostelsList extends AppCompatActivity {
     public Button Seethamma_button;
+    private ImageButton back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,14 @@ public class HostelsList extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(HostelsList.this, Mainpage.class);
                 Toast.makeText(HostelsList.this, "success", Toast.LENGTH_SHORT).show();
+                startActivity(i);
+            }
+        });
+        back = findViewById(R.id.imageButton);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HostelsList.this, MainActivity.class);
                 startActivity(i);
             }
         });

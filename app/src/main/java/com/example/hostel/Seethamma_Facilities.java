@@ -41,10 +41,18 @@ public class Seethamma_Facilities extends AppCompatActivity {
         ViewPager2 viewPager = findViewById(R.id.viewPager);
         // Add images from drawable
         List<Integer> imageList = Arrays.asList(
-                R.drawable.samyutha,
-                R.drawable.saradha,
-                R.drawable.sravani,
-                R.drawable.saraswathi
+                R.drawable.seethammaf1,
+                R.drawable.seethammaf2,
+                R.drawable.seethammaf3,
+                R.drawable.seethammaf4,
+                R.drawable.seethammaf5,
+                R.drawable.seethammaf6,
+                R.drawable.seethammaf7,
+                R.drawable.seethammaf8,
+                R.drawable.seethammaf9,
+                R.drawable.seethammaf10,
+                R.drawable.seethammaf11,
+                R.drawable.seethammaf12
         );
         viewPager.setAdapter(new ImageAdapter(this, imageList));
         viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);

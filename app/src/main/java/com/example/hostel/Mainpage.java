@@ -41,7 +41,7 @@ public class Mainpage extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Mainpage.this, MainActivity.class);
+                Intent i = new Intent(Mainpage.this, HostelsList.class);
                 Toast.makeText(Mainpage.this, "success", Toast.LENGTH_SHORT).show();
                 startActivity(i);
             }
@@ -102,10 +102,13 @@ public class Mainpage extends AppCompatActivity {
 
         // Add images from drawable
         List<Integer> imageList = Arrays.asList(
-                R.drawable.samyutha,
-                R.drawable.saradha,
-                R.drawable.sravani,
-                R.drawable.saraswathi
+                R.drawable.seethammar1,
+                R.drawable.seethammar2,
+                R.drawable.seethammar3,
+                R.drawable.seethammar3,
+                R.drawable.seethammar4,
+                R.drawable.seethammar5,
+                R.drawable.seethammar6
         );
 
 

@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.samyutha,
                 R.drawable.saradha,
                 R.drawable.sravani,
-                R.drawable.saraswathi
+                R.drawable.saraswathi,
+                R.drawable.seethamma
         );
         viewPager.setAdapter(new ImageAdapter(this, imageList));
         viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
