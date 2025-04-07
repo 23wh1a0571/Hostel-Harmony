@@ -12,100 +12,29 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class Seethamma_Floor extends AppCompatActivity {
-    private Button b;
+    //private Button b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_seethamma_floor);
-        b = findViewById(R.id.room1);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
+
+        int[] buttonIds = {
+                R.id.room1, R.id.room2, R.id.room3, R.id.room4, R.id.room5,
+                R.id.room6, R.id.room7, R.id.room8, R.id.room9, R.id.room10, R.id.room11
+        };
+
+        // ✅ Loop through each button and set a click listener
+        for (int id : buttonIds) {
+            Button button = findViewById(id);
+            if (button != null) { // Ensure the button exists in the layout
+                button.setOnClickListener(v -> {
+                    Intent i = new Intent(Seethamma_Floor.this, Room.class);
+                    startActivity(i);
+                });
             }
-        });
-        b = findViewById(R.id.room2);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
-            }
-        });
-        b = findViewById(R.id.room3);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
-            }
-        });
-        b = findViewById(R.id.room4);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
-            }
-        });
-        b = findViewById(R.id.room5);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
-            }
-        });
-        b = findViewById(R.id.room6);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
-            }
-        });
-        b = findViewById(R.id.room7);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
-            }
-        });
-        b = findViewById(R.id.room8);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
-            }
-        });
-        b = findViewById(R.id.room9);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
-            }
-        });
-        b = findViewById(R.id.room10);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
-            }
-        });
-        b = findViewById(R.id.room11);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Seethamma_Floor.this, Room.class);
-                startActivity(i);
-            }
-        });
+        }
+
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.floor1), (v, insets) -> {
