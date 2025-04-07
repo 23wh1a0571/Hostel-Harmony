@@ -1,104 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDE1F1"
-    android:backgroundTint="#EDE1F1"
-    tools:context=".MainActivity">
+    tools:context=".Mainpage">
 
+    <!-- 🔙 Back Button -->
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        android:contentDescription="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
 
-    <!-- Hostel Name -->
+    <!-- 🏠 Hostel Name -->
+    <TextView
+        android:id="@+id/hostel_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seethamma"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="60dp"/>
+
+    <!-- 🖼 ViewPager2 for Images -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/hostel_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 🔘 TabLayout (Image Indicator) -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewPager"
         app:tabGravity="center"
         app:tabIndicatorColor="@color/white"
         app:tabIndicatorGravity="bottom"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/white" />
-
-    <TextView
-        android:id="@+id/hostel_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="@string/seethamma"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:tabSelectedTextColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/viewPager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Image Section -->
-
-    <!-- Dots Indicator -->
-
-    <!-- Facilities Button -->
-    <Button
-        android:id="@+id/button_facilities"
-        android:layout_width="159dp"
-        android:layout_height="60dp"
-        android:backgroundTint="#6A4CA2"
-        android:text="@string/facilities"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Floors Button -->
-
+    <!-- 📍 Spinner (Floors Dropdown) -->
     <Spinner
         android:id="@+id/mySpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
         android:backgroundTint="#6A4CA2"
-        android:dropDownSelector="@color/black"
-        android:foregroundTint="#694BA1"
         android:popupBackground="#6A4CA2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:overScrollMode="never"
+    <!-- 🏨 Facilities Button -->
+    <Button
+        android:id="@+id/button_facilities"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#6A4CA2"
+        android:text="@string/facilities"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/mySpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintVertical_bias="0.119" />
-
-    <ImageButton
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="?attr/homeAsUpIndicator"
-        tools:layout_editor_absoluteY="16dp" />
-
+        android:layout_marginBottom="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
