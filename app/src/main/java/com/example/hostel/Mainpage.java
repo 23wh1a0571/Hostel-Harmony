@@ -1,141 +1,98 @@
 package com.example.hostel;
 
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hostel.ImageAdapter;
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Mainpage extends AppCompatActivity {
-    private ImageButton back;
-    private Button facility;
+
+    private TextView hostelNameText;
+    private ViewPager2 viewPager;
+    private TabLayout tabLayout;
+    private Spinner floorSpinner;
+    private Button facilitiesButton;
+    private ImageButton backButton;
+
+    private DatabaseReference hostelsRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_mainpage);
 
-        //Back button implementation
-        back = findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
+        // Get hostel name from intent
+
+
+        // Initialize UI
+        hostelNameText = findViewById(R.id.hostel_name);
+        viewPager = findViewById(R.id.viewPager);
+        tabLayout = findViewById(R.id.tabLayout);
+        floorSpinner = findViewById(R.id.mySpinner);
+        facilitiesButton = findViewById(R.id.button_facilities);
+        backButton = findViewById(R.id.back);
+
+        hostelsRef = FirebaseDatabase.getInstance().getReference("hostels");
+
+        // 🔙 Back button
+        backButton.setOnClickListener(v -> finish());
+
+        // Get hostel name from Intent
+        String hostelName = getIntent().getStringExtra("hostel_name");
+        if (hostelName != null) {
+            hostelNameText.setText(hostelName);
+            fetchHostelData(hostelName);
+        } else {
+            Toast.makeText(this, "No hostel selected", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void fetchHostelData(String hostelName) {
+        hostelsRef.child(hostelName).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Mainpage.this, HostelsList.class);
-                Toast.makeText(Mainpage.this, "success", Toast.LENGTH_SHORT).show();
-                startActivity(i);
-            }
-        });
-        //Facility Button
-        facility = findViewById(R.id.button_facilities);
-        facility.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Mainpage.this, Seethamma_Facilities.class);
-                startActivity(i);
-            }
-        });
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    List<String> imageUrls = FirebaseHelper.extractImages(snapshot);
+                    List<String> floors = FirebaseHelper.extractFloors(snapshot);
 
-        //Floors Dropdown
-        Spinner spinner = findViewById(R.id.mySpinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item,
-                R.id.spinner_text, getResources().getStringArray(R.array.floors));
+                    // Load images into ViewPager
+                    ImagePageAdapter adapter = new ImagePageAdapter(Mainpage.this, imageUrls);
+                    viewPager.setAdapter(adapter);
 
-        adapter.setDropDownViewResource(R.layout.spinner_item);
+                    // Sync TabLayout with ViewPager2
+                    new TabLayoutMediator(tabLayout, viewPager,
+                            (tab, position) -> tab.setText(String.valueOf(position + 1))
+                    ).attach();
 
-        spinner.setAdapter(adapter);
+                    // Load floors into Spinner
+                    SpinnerAdapterHelper.setSpinnerData(Mainpage.this, floorSpinner, floors);
 
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = parent.getItemAtPosition(position).toString();
-
-                Toast.makeText(Mainpage.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
-                if (selectedItem.equals("Floor 1")) {
-                    Intent intent = new Intent(Mainpage.this, Seethamma_Floor.class);
-                    startActivity(intent);
+                } else {
+                    // Add default data if not present
+                    FirebaseHelper.addHostel(hostelsRef, hostelName, FirebaseHelper.getDefaultImagesFor(hostelName));
+                    Toast.makeText(Mainpage.this, "Default data added for " + hostelName, Toast.LENGTH_SHORT).show();
                 }
-                else if(selectedItem.equals("Floor 2")) {
-                    Intent intent = new Intent(Mainpage.this, Seethamma_floor2.class);
-                    startActivity(intent);
-                }
-                else if(selectedItem.equals("Floor 3")) {
-                    Intent intent = new Intent(Mainpage.this, Seethamma_floor3.class);
-                    startActivity(intent);
-                }
-                else if(selectedItem.equals("Ground Floor")) {
-                    Intent intent = new Intent(Mainpage.this, Seethamma_Ground.class);
-                    startActivity(intent);
-                }
-
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(Mainpage.this, "Failed: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        });
-
-        //Scrolling images
-        ViewPager2 viewPager = findViewById(R.id.viewPager);
-
-        // Add images from drawable
-        List<Integer> imageList = Arrays.asList(
-                R.drawable.seethammar1,
-                R.drawable.seethammar2,
-                R.drawable.seethammar3,
-                R.drawable.seethammar3,
-                R.drawable.seethammar4,
-                R.drawable.seethammar5,
-                R.drawable.seethammar6
-        );
-
-
-        viewPager.setAdapter(new ImageAdapter(this, imageList));
-
-
-        viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-
-
-
-        // Fix: Disable excessive preloading
-        viewPager.setOffscreenPageLimit(1);
-
-        viewPager.setPageTransformer((page, position) -> {
-            page.setAlpha(0.5f + (1 - Math.abs(position)) * 0.5f);
-        });
-
-
-
-
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
-        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {}).attach();
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main1), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
         });
     }
 }
