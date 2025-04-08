@@ -59,13 +59,15 @@
                 android:textColor="#000"
                 android:textSize="18sp" />
 
-            <!-- Password input -->
+            <!-- ✅ Added Email EditText -->
             <EditText
+                android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#EDE1F1"
                 android:hint="Enter user name"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:inputType="textEmailAddress" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -75,15 +77,17 @@
                 android:textColor="#000"
                 android:textSize="18sp" />
 
-            <!-- Sign-in button -->
-
+            <!-- ✅ Added Password EditText -->
             <EditText
+                android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#EDE1F1"
                 android:hint="Enter password"
                 android:inputType="textPassword"
                 android:padding="8dp" />
+
+            <!-- Sign-in button -->
 
             <Button
                 android:id="@+id/signInButton"
