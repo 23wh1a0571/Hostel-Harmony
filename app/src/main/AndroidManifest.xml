@@ -28,6 +28,12 @@
             android:name=".StudentLogin"
             android:exported="false" />
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity android:name=".RegisterActivity"
+            android:exported="false"/>
+
+        <activity
             android:name=".HostelsList"
             android:exported="false" />
         <activity

@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.nav_student) {
-                    Intent i = new Intent(MainActivity.this, StudentLogin.class);
+                    Intent i = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(i);
                     Toast.makeText(MainActivity.this, "Login Selected", Toast.LENGTH_SHORT).show();
                 } else if (id == R.id.nav_admin) {

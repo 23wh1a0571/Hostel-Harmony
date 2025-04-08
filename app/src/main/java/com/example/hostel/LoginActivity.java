@@ -25,7 +25,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login); // Ensure login.xml exists in res/layout
 
+        String redirectTo = getIntent().getStringExtra("redirect_to");
+        String hostelName = getIntent().getStringExtra("hostelName");
+        String floorName = getIntent().getStringExtra("floorName");
+        String roomNumber = getIntent().getStringExtra("roomNumber");
+
         mAuth = FirebaseAuth.getInstance();
+
 
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
@@ -45,8 +51,20 @@ public class LoginActivity extends AppCompatActivity {
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class)); // Replace with your home screen activity
+
+                            Intent redirectIntent;
+                            if ("BunkSelectionActivity".equals(redirectTo)) {
+                                redirectIntent = new Intent(LoginActivity.this, BunkSelectionActivity.class);
+                                redirectIntent.putExtra("hostelName", hostelName);
+                                redirectIntent.putExtra("floorName", floorName);
+                                redirectIntent.putExtra("roomNumber", roomNumber);
+                            } else {
+                                redirectIntent = new Intent(LoginActivity.this, HomeActivity.class); // default fallback
+                            }
+
+                            startActivity(redirectIntent);
                             finish();
+
                         } else {
                             Toast.makeText(LoginActivity.this, "Login Failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
