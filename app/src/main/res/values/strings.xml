@@ -1,8 +1,14 @@
 <resources>
-    <string name="app_name">Hostel</string>
-    <string name="seethamma">Seethamma</string>
-    <string name="facilities">Facilities</string>
-    <string name="view_hostel">View Hostel</string>
-
-
+    <string name="app_name">Hostel Harmony</string>
+    <string name="back_button">Back</string>
+    <string name="profile_title">Your Profile</string>
+    <string name="username_label">Username</string>
+    <string name="username_hint">Enter your username</string>
+    <string name="change_password_label">Change Password</string>
+    <string name="password_hint">Enter new password</string>
+    <string name="update_button">Update</string>
+    <string name="status_title">Booking Status</string>
+    <string name="room_number">Room: A101</string>
+    <string name="approved">Approved</string>
+    <string name="profile_icon">Profile Icon</string>
 </resources>
