@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class BunkSelectionActivity extends AppCompatActivity {
 
     private GridLayout bunkGrid;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,7 @@ public class BunkSelectionActivity extends AppCompatActivity {
         TextView title = findViewById(R.id.bunkTitle);
         bunkGrid = findViewById(R.id.bunkGrid);
 
-        Button backButton = findViewById(R.id.backButton);
+        ImageButton backButton = findViewById(R.id.back);
         backButton.setOnClickListener(v -> finish());
 
         if (hostelName != null && floorName != null && roomNumber != null) {

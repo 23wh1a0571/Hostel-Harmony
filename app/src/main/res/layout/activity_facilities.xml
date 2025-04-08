@@ -32,7 +32,7 @@
             android:gravity="center"
             android:text="Facility"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <View
@@ -63,14 +63,14 @@
     <TextView
         android:id="@+id/facilityDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="201dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:justificationMode="inter_word"
+        android:lineSpacingExtra="4dp"
         android:padding="16dp"
         android:text="Loading details..."
-        android:textSize="16sp"
         android:textColor="#000000"
-        android:gravity="center"
-        android:layout_marginBottom="16dp"
-        android:lineSpacingExtra="4dp"
-        android:justificationMode="inter_word" />
+        android:textSize="34sp" />
 
 </LinearLayout>
