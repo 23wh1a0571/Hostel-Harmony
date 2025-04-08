@@ -66,13 +66,14 @@
     <!-- 🏨 Facilities Button -->
     <Spinner
         android:id="@+id/mySpinner"
-        android:layout_width="129dp"
-        android:layout_height="34dp"
+        android:layout_width="158dp"
+        android:layout_height="41dp"
         android:layout_marginTop="16dp"
         android:background="#211C1C"
         android:backgroundTint="#6A4CA2"
         android:popupBackground="#6A4CA2"
         android:visibility="visible"
+        android:padding="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tabLayout" />
