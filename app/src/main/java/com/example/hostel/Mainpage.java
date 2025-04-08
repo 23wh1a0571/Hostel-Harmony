@@ -27,9 +27,9 @@ public class Mainpage extends AppCompatActivity {
     private ViewPager2 viewPager;
     private TabLayout tabLayout;
     private Spinner floorSpinner;
-    private Button facilitiesButton;
+    private Button floorButton;
     private ImageButton backButton;
-
+    private Button facilitiesButton;
     private DatabaseReference hostelsRef;
 
     @Override
@@ -45,13 +45,15 @@ public class Mainpage extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);
         floorSpinner = findViewById(R.id.mySpinner);
-        facilitiesButton = findViewById(R.id.button_facilities);
+        floorButton = findViewById(R.id.button_floor);
         backButton = findViewById(R.id.back);
 
         hostelsRef = FirebaseDatabase.getInstance().getReference("hostels");
 
         // 🔙 Back button
         backButton.setOnClickListener(v -> finish());
+
+
 
         // Get hostel name from Intent
         String hostelName = getIntent().getStringExtra("hostel_name");
@@ -61,11 +63,18 @@ public class Mainpage extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No hostel selected", Toast.LENGTH_SHORT).show();
         }
+        facilitiesButton = findViewById(R.id.facilities); // ensure your XML has this ID
+
+        facilitiesButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Mainpage.this, FacilitiesActivity.class);
+            intent.putExtra("hostelName", hostelName);
+            startActivity(intent);
+        });
     }
 
     private void fetchHostelData(String hostelName) {
         // Facilities button opens FloorActivity with selected hostel and floor
-        facilitiesButton.setOnClickListener(v -> {
+        floorButton.setOnClickListener(v -> {
             String selectedFloor = floorSpinner.getSelectedItem() != null
                     ? floorSpinner.getSelectedItem().toString()
                     : null;

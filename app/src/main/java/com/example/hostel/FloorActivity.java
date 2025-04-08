@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,7 @@ public class FloorActivity extends AppCompatActivity {
         TextView title = findViewById(R.id.title);
         roomGrid = findViewById(R.id.roomGrid);
 
-        Button backButton = findViewById(R.id.back);
+        ImageButton backButton = findViewById(R.id.back);
         backButton.setOnClickListener(v -> finish());
 
         if (hostelName != null && floorName != null) {

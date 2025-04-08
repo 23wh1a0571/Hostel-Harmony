@@ -32,6 +32,35 @@ public class FirebaseHelper {
         }
         return floors;
     }
+    public static List<String> extractFacilities(DataSnapshot snapshot) {
+        List<String> facilityImages = new ArrayList<>();
+        for (DataSnapshot item : snapshot.getChildren()) {
+            String url = item.getValue(String.class);
+            if (url != null) {
+                facilityImages.add(url);
+            }
+        }
+        return facilityImages;
+    }
+
+    public static String getFacilityDescriptionFor(String hostelName) {
+        switch (hostelName) {
+            case "Soudamini":
+                return "Soudamini hostel offers spacious rooms, clean bathrooms, and a peaceful environment for study and relaxation.";
+            case "Samyutha":
+                return "Samyutha features modern amenities, 24/7 Wi-Fi, and secure access, ideal for tech-savvy students.";
+            case "Saraswathi":
+                return "Saraswathi hostel is known for its friendly atmosphere and well-maintained kitchen and laundry areas.";
+            case "Saradha":
+                return "Saradha hostel has a beautiful garden, regular cleaning, and is close to the academic blocks.";
+            case "Seethamma":
+                return "Seethamma hostel provides well-furnished rooms, reading rooms, and calm surroundings.";
+            case "Sravani":
+                return "Sravani hostel is compact yet cozy, with all essential facilities and a dedicated common area.";
+            default:
+                return "This hostel offers all basic amenities, ensuring a safe and comfortable stay for students.";
+        }
+    }
 
     // Adds a hostel with image URLs and auto-generates rooms/floors
     public static void addHostel(DatabaseReference hostelsRef, String name, List<String> images) {
@@ -41,6 +70,13 @@ public class FirebaseHelper {
 
         List<String> floors = getFloorsForHostel(name);
         hostelData.put("floors", floors);
+
+        List<String> facilities = getDefaultFacilitiesFor(name);  // NEW
+        hostelData.put("facilities", facilities);                // NEW
+
+        String description = getFacilityDescriptionFor(name);
+        hostelData.put("facilityDescription", description);
+
 
         hostelsRef.child(name).setValue(hostelData)
                 .addOnSuccessListener(aVoid -> {
@@ -64,6 +100,26 @@ public class FirebaseHelper {
                 return Arrays.asList("Ground Floor");
             default:
                 return Arrays.asList("Ground Floor", "First Floor");
+        }
+    }
+
+    // NEW: Default facilities for each hostel
+    public static List<String> getDefaultFacilitiesFor(String hostelName) {
+        switch (hostelName) {
+            case "Soudamini":
+                return Arrays.asList("saraswathif5", "saraswathif6", "saraswathif7", "saraswathif8");
+            case "Samyutha":
+                return Arrays.asList("samyutha_f1", "samyutha_f2", "samyutha_f3", "samyutha_f4", "samyutha_f5");
+            case "Saraswathi":
+                return Arrays.asList("saraswathif1", "saraswathif2", "saraswathif3", "saraswathif4");
+            case "Saradha":
+                return Arrays.asList("saradha_f1", "saradha_f2", "saradha_f3", "saradha_f4");
+            case "Seethamma":
+                return Arrays.asList("seethammaf1", "seethammaf2", "seethammaf3", "seethammaf4");
+            case "Sravani":
+                return Arrays.asList("samyutha_f6", "samyutha_f7", "samyutha_f8");
+            default:
+                return Arrays.asList("seethammaf10", "seethammaf11");
         }
     }
 
@@ -143,7 +199,6 @@ public class FirebaseHelper {
         hostelsRef.child(hostelName).child(floorName).setValue(rooms)
                 .addOnSuccessListener(aVoid -> {
                     Log.d("FirebaseHelper", "Rooms added to " + hostelName + " - " + floorName);
-                    // Now add bunks after room upload is complete
                     for (Map.Entry<String, String> entry : roomStatusMap.entrySet()) {
                         addBunksToRoom(hostelsRef, hostelName, floorName, entry.getKey(), entry.getValue());
                     }
@@ -180,11 +235,11 @@ public class FirebaseHelper {
             case "Saradha":
                 return Arrays.asList("saradha", "samyutha", "saraswathi");
             case "Seethamma":
-                return Arrays.asList("seethamma", "seethammar1", "seethammar2");
+                return Arrays.asList("seethamma", "seethammar1", "seethammar2", "seethammar3");
             case "Sravani":
-                return Arrays.asList("seethammar1", "sravani", "seethammaf3");
+                return Arrays.asList("seethammar5", "seethammar4", "seethammaf3");
             default:
-                return Arrays.asList("default1", "default2", "default3");
+                return Arrays.asList("seethamma", "sravani", "saraswathi");
         }
     }
 }
