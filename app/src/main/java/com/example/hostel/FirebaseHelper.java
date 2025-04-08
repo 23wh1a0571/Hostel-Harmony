@@ -18,16 +18,58 @@ public class FirebaseHelper {
         hostelData.put("name", name);
         hostelData.put("images", images);
 
-        // Example: floors - 4 total floors
-        List<String> floors = Arrays.asList("Ground Floor", "First Floor", "Second Floor", "Third Floor");
+        List<String> floors = getFloorsForHostel(name);
         hostelData.put("floors", floors);
 
         hostelsRef.child(name).setValue(hostelData)
-                .addOnSuccessListener(aVoid -> Log.d("FirebaseHelper", name + " added successfully"))
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("FirebaseHelper", name + " added successfully");
+                    addRoomsToAllFloors(hostelsRef, name, floors, 12); // Add 12 rooms per floor
+                })
                 .addOnFailureListener(e -> Log.e("FirebaseHelper", "Failed to add " + name, e));
     }
 
-    // Returns default image names for a hostel
+    // Returns floor names based on hostel name
+    private static List<String> getFloorsForHostel(String name) {
+        switch (name) {
+            case "Soudamini":
+            case "Seethamma":
+                return Arrays.asList("Ground Floor", "First Floor", "Second Floor", "Third Floor");
+            case "Samyutha":
+            case "Saradha":
+                return Arrays.asList("First Floor", "Second Floor", "Third Floor", "Fourth Floor");
+            case "Saraswathi":
+                return Arrays.asList("First Floor", "Second Floor");
+            case "Sravani":
+                return Arrays.asList("Ground Floor");
+            default:
+                return Arrays.asList("Ground Floor", "First Floor"); // fallback
+        }
+    }
+
+    // Adds room data under a specific hostel & floor
+    public static void addRoomsToFloor(DatabaseReference hostelsRef, String hostelName, String floorName, int roomCount) {
+        HashMap<String, Object> rooms = new HashMap<>();
+        for (int i = 1; i <= roomCount; i++) {
+            String roomNumber = "Room " + String.format("%03d", i); // e.g., Room 001
+            rooms.put(roomNumber, "available");
+        }
+
+        hostelsRef.child(hostelName).child(floorName).setValue(rooms)
+                .addOnSuccessListener(aVoid ->
+                        Log.d("FirebaseHelper", "Rooms added to " + hostelName + " - " + floorName))
+                .addOnFailureListener(e ->
+                        Log.e("FirebaseHelper", "Failed to add rooms to " + floorName, e));
+    }
+
+    // Adds rooms to all floors of a hostel
+    public static void addRoomsToAllFloors(DatabaseReference hostelsRef, String hostelName, List<String> floors, int roomCount) {
+        for (String floor : floors) {
+            addRoomsToFloor(hostelsRef, hostelName, floor, roomCount);
+        }
+    }
+
+    // Default image names for each hostel
     public static List<String> getDefaultImagesFor(String hostelName) {
         switch (hostelName) {
             case "Soudamini":
@@ -35,7 +77,7 @@ public class FirebaseHelper {
             case "Samyutha":
                 return Arrays.asList("saradha", "samyutha", "sravani");
             case "Saraswathi":
-                return Arrays.asList("seeethamma","seethammaf2", "seethammaf3");
+                return Arrays.asList("seeethamma", "seethammaf2", "seethammaf3");
             case "Saradha":
                 return Arrays.asList("saradha", "samyutha", "saraswathi");
             case "Seethamma":
@@ -50,9 +92,12 @@ public class FirebaseHelper {
     // Extracts image names from Firebase snapshot
     public static List<String> extractImages(DataSnapshot snapshot) {
         List<String> images = new ArrayList<>();
-        for (DataSnapshot imgSnap : snapshot.child("images").getChildren()) {
-            String imgName = imgSnap.getValue(String.class);
-            if (imgName != null) images.add(imgName);
+        DataSnapshot imagesSnapshot = snapshot.child("images");
+        if (imagesSnapshot.exists()) {
+            for (DataSnapshot imgSnap : imagesSnapshot.getChildren()) {
+                String imgName = imgSnap.getValue(String.class);
+                if (imgName != null) images.add(imgName);
+            }
         }
         return images;
     }
@@ -60,9 +105,12 @@ public class FirebaseHelper {
     // Extracts floor names from Firebase snapshot
     public static List<String> extractFloors(DataSnapshot snapshot) {
         List<String> floors = new ArrayList<>();
-        for (DataSnapshot floorSnap : snapshot.child("floors").getChildren()) {
-            String floor = floorSnap.getValue(String.class);
-            if (floor != null) floors.add(floor);
+        DataSnapshot floorsSnapshot = snapshot.child("floors");
+        if (floorsSnapshot.exists()) {
+            for (DataSnapshot floorSnap : floorsSnapshot.getChildren()) {
+                String floor = floorSnap.getValue(String.class);
+                if (floor != null) floors.add(floor);
+            }
         }
         return floors;
     }

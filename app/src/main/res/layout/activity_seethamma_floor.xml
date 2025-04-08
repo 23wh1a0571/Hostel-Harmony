@@ -5,13 +5,6 @@ android:layout_height="match_parent"
 android:background="#DCCFE2"
     android:id="@+id/floor1">
 
-
-<!-- Available and Booked Legend at Top -->
-
-<!-- White Rectangular Box -->
-
-<!-- Title -->
-
     <View
         android:id="@+id/container"
         android:layout_width="304dp"
