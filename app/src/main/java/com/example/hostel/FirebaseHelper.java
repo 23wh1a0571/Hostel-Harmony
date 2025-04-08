@@ -1,10 +1,8 @@
 package com.example.hostel;
 
 import android.util.Log;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -128,6 +126,7 @@ public class FirebaseHelper {
 
     public static void addCustomRoomsToFloor(DatabaseReference hostelsRef, String hostelName, String floorName, int roomCount) {
         HashMap<String, Object> rooms = new HashMap<>();
+        Map<String, String> roomStatusMap = new HashMap<>();
 
         for (int i = 1; i <= roomCount; i++) {
             String roomNumber = "Room " + String.format("%03d", i);
@@ -138,13 +137,36 @@ public class FirebaseHelper {
             }
 
             rooms.put(roomNumber, status);
+            roomStatusMap.put(roomNumber, status); // save for bunk generation later
         }
 
         hostelsRef.child(hostelName).child(floorName).setValue(rooms)
-                .addOnSuccessListener(aVoid ->
-                        Log.d("FirebaseHelper", "Rooms added to " + hostelName + " - " + floorName))
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("FirebaseHelper", "Rooms added to " + hostelName + " - " + floorName);
+                    // Now add bunks after room upload is complete
+                    for (Map.Entry<String, String> entry : roomStatusMap.entrySet()) {
+                        addBunksToRoom(hostelsRef, hostelName, floorName, entry.getKey(), entry.getValue());
+                    }
+                })
                 .addOnFailureListener(e ->
                         Log.e("FirebaseHelper", "Failed to add rooms to " + floorName, e));
+    }
+
+    public static void addBunksToRoom(DatabaseReference hostelsRef, String hostelName, String floorName, String roomName, String roomStatus) {
+        Map<String, String> bunks = new HashMap<>();
+        bunks.put("Upper 1", roomStatus);
+        bunks.put("Upper 2", roomStatus);
+        bunks.put("Lower 1", roomStatus);
+        bunks.put("Lower 2", roomStatus);
+
+        hostelsRef.child(hostelName)
+                .child(floorName)
+                .child(roomName + "_bunks")
+                .setValue(bunks)
+                .addOnSuccessListener(aVoid ->
+                        Log.d("FirebaseHelper", "Bunks added for " + roomName))
+                .addOnFailureListener(e ->
+                        Log.e("FirebaseHelper", "Failed to add bunks for " + roomName, e));
     }
 
     public static List<String> getDefaultImagesFor(String hostelName) {
