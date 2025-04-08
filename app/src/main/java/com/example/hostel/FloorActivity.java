@@ -3,7 +3,6 @@ package com.example.hostel;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
@@ -44,6 +43,7 @@ public class FloorActivity extends AppCompatActivity {
             Toast.makeText(this, "Hostel or Floor not found!", Toast.LENGTH_SHORT).show();
         }
     }
+
     private void loadRoomsFromFirebase(String hostelName, String floorName) {
         FirebaseDatabase.getInstance().getReference("hostels")
                 .child(hostelName)
@@ -56,14 +56,17 @@ public class FloorActivity extends AppCompatActivity {
                         for (DataSnapshot roomSnap : snapshot.getChildren()) {
                             String roomNumber = roomSnap.getKey();
 
-                            // ❌ Skip _bunks nodes
-                            if (roomNumber == null || roomNumber.endsWith("_bunks")) {
-                                continue;
-                            }
+                            // Skip bunk nodes like 101_bunks
+                            if (roomNumber == null || roomNumber.endsWith("_bunks")) continue;
 
-                            // ✅ Read status directly if value is string like "booked"
-                            String status = roomSnap.getValue(String.class);
-                            if (status == null) status = "booked"; // fallback
+                            String roomStatus = "available"; // default
+
+                            // Handle both old and new formats
+                            if (roomSnap.getValue() instanceof String) {
+                                roomStatus = roomSnap.getValue(String.class); // old format
+                            } else if (roomSnap.hasChild("room_status")) {
+                                roomStatus = roomSnap.child("room_status").getValue(String.class); // new format
+                            }
 
                             Button btn = new Button(FloorActivity.this);
                             btn.setText(roomNumber);
@@ -71,7 +74,13 @@ public class FloorActivity extends AppCompatActivity {
                             btn.setTextSize(16f);
                             btn.setAllCaps(false);
 
-                            if ("booked".equalsIgnoreCase(status)) {
+                            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+                            params.width = 350;
+                            params.height = 180;
+                            params.setMargins(24, 24, 24, 24);
+                            btn.setLayoutParams(params);
+
+                            if ("booked".equalsIgnoreCase(roomStatus)) {
                                 btn.setBackgroundColor(ContextCompat.getColor(FloorActivity.this, android.R.color.darker_gray));
                                 btn.setEnabled(false);
                             } else {
@@ -87,12 +96,6 @@ public class FloorActivity extends AppCompatActivity {
                                 });
                             }
 
-                            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-                            params.width = 350;
-                            params.height = 180;
-                            params.setMargins(24, 24, 24, 24);
-                            btn.setLayoutParams(params);
-
                             roomGrid.addView(btn);
                         }
                     }
@@ -103,7 +106,5 @@ public class FloorActivity extends AppCompatActivity {
                     }
                 });
     }
-
-
 
 }
