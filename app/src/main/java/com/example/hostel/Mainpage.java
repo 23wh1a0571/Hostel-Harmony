@@ -1,5 +1,6 @@
 package com.example.hostel;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -63,6 +64,22 @@ public class Mainpage extends AppCompatActivity {
     }
 
     private void fetchHostelData(String hostelName) {
+        // Facilities button opens FloorActivity with selected hostel and floor
+        facilitiesButton.setOnClickListener(v -> {
+            String selectedFloor = floorSpinner.getSelectedItem() != null
+                    ? floorSpinner.getSelectedItem().toString()
+                    : null;
+
+            if (selectedFloor != null && !selectedFloor.isEmpty()) {
+                Intent intent = new Intent(Mainpage.this, FloorActivity.class);
+                intent.putExtra("hostelName", hostelName);
+                intent.putExtra("floorName", selectedFloor);
+                startActivity(intent);
+            } else {
+                Toast.makeText(Mainpage.this, "Please select a floor", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         hostelsRef.child(hostelName).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -93,6 +110,7 @@ public class Mainpage extends AppCompatActivity {
             public void onCancelled(DatabaseError error) {
                 Toast.makeText(Mainpage.this, "Failed: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
+
         });
     }
 }

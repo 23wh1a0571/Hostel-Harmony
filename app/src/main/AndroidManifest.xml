@@ -24,6 +24,9 @@
         <activity
             android:name=".Room"
             android:exported="false" />
+        <activity android:name=".FloorActivity"
+            android:exported="true" />
+
         <activity
             android:name=".Seethamma_Facilities"
             android:exported="false" />
