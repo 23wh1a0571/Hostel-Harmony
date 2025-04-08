@@ -1,5 +1,6 @@
 package com.example.hostel;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -32,6 +33,9 @@ public class FloorActivity extends AppCompatActivity {
         TextView title = findViewById(R.id.title);
         roomGrid = findViewById(R.id.roomGrid);
 
+        Button backButton = findViewById(R.id.back);
+        backButton.setOnClickListener(v -> finish());
+
         if (hostelName != null && floorName != null) {
             title.setText(hostelName + " - " + floorName);
             loadRoomsFromFirebase(hostelName, floorName);
@@ -39,7 +43,6 @@ public class FloorActivity extends AppCompatActivity {
             Toast.makeText(this, "Hostel or Floor not found!", Toast.LENGTH_SHORT).show();
         }
     }
-
     private void loadRoomsFromFirebase(String hostelName, String floorName) {
         FirebaseDatabase.getInstance().getReference("hostels")
                 .child(hostelName)
@@ -51,7 +54,15 @@ public class FloorActivity extends AppCompatActivity {
 
                         for (DataSnapshot roomSnap : snapshot.getChildren()) {
                             String roomNumber = roomSnap.getKey();
+
+                            // ❌ Skip _bunks nodes
+                            if (roomNumber == null || roomNumber.endsWith("_bunks")) {
+                                continue;
+                            }
+
+                            // ✅ Read status directly if value is string like "booked"
                             String status = roomSnap.getValue(String.class);
+                            if (status == null) status = "booked"; // fallback
 
                             Button btn = new Button(FloorActivity.this);
                             btn.setText(roomNumber);
@@ -59,15 +70,22 @@ public class FloorActivity extends AppCompatActivity {
                             btn.setTextSize(16f);
                             btn.setAllCaps(false);
 
-                            // Set background based on room status
                             if ("booked".equalsIgnoreCase(status)) {
                                 btn.setBackgroundColor(ContextCompat.getColor(FloorActivity.this, android.R.color.darker_gray));
-                                btn.setEnabled(false); // disable interaction
+                                btn.setEnabled(false);
                             } else {
-                                btn.setBackgroundColor(Color.parseColor("#FFF5CC")); // Light yellow for available
+                                btn.setBackgroundColor(Color.parseColor("#FFF5CC"));
+                                String finalRoomNumber = roomNumber;
+
+                                btn.setOnClickListener(v -> {
+                                    Intent intent = new Intent(FloorActivity.this, BunkSelectionActivity.class);
+                                    intent.putExtra("hostelName", hostelName);
+                                    intent.putExtra("floorName", floorName);
+                                    intent.putExtra("roomNumber", finalRoomNumber);
+                                    startActivity(intent);
+                                });
                             }
 
-                            // Grid layout parameters
                             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
                             params.width = 350;
                             params.height = 180;
@@ -84,4 +102,7 @@ public class FloorActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
+
 }
