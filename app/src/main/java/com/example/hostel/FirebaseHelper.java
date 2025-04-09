@@ -46,17 +46,17 @@ public class FirebaseHelper {
     public static String getFacilityDescriptionFor(String hostelName) {
         switch (hostelName) {
             case "Soudamini":
-                return "Soudamini hostel offers spacious rooms, clean bathrooms, and a peaceful environment for study and relaxation.";
+                return "• Spacious rooms\n\n• Clean bathrooms\n\n• Peaceful environment for study and relaxation";
             case "Samyutha":
-                return "Samyutha features modern amenities, 24/7 Wi-Fi, and secure access, ideal for tech-savvy students.";
+                return "• Modern amenities\n\n• 24/7 Wi-Fi\n\n• Secure access, ideal for tech-savvy students";
             case "Saraswathi":
-                return "Saraswathi hostel is known for its friendly atmosphere and well-maintained kitchen and laundry areas.";
+                return "• Friendly atmosphere\n\n• Well-maintained kitchen\n\n• Well-maintained laundry areas";
             case "Saradha":
-                return "Saradha hostel has a beautiful garden, regular cleaning, and is close to the academic blocks.";
+                return "• Beautiful garden\n\n• Regular cleaning\n\n• Close to academic blocks";
             case "Seethamma":
-                return "Seethamma hostel provides well-furnished rooms, reading rooms, and calm surroundings.";
+                return "• Well-furnished rooms\n\n• Reading rooms\n\n• Calm surroundings";
             case "Sravani":
-                return "Sravani hostel is compact yet cozy, with all essential facilities and a dedicated common area.";
+                return "• Compact yet cozy\n\n• All essential facilities\n\n• Dedicated common area";
             default:
                 return "This hostel offers all basic amenities, ensuring a safe and comfortable stay for students.";
         }

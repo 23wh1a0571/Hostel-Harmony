@@ -33,4 +33,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="?attr/actionModeCloseDrawable" />
+    <!-- Room status legend at bottom center -->
+    <LinearLayout
+        android:id="@+id/legendLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp">
+
+        <!-- Available -->
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFF5CC"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Available "
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical" />
+
+        <!-- Spacer -->
+        <Space
+            android:layout_width="32dp"
+            android:layout_height="1dp" />
+
+        <!-- Booked -->
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#D3D3D3"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Booked "
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
 </RelativeLayout>

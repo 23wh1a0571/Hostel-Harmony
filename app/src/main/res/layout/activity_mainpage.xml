@@ -53,36 +53,54 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:tabGravity="center"
-        app:tabIndicatorColor="@color/white"
-        app:tabIndicatorGravity="bottom"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorHeight="0dp"
+        app:tabTextColor="#80FFFFFF"
+        app:tabSelectedTextColor="#FFFFFF"
+        android:textSize="36sp"
+        android:background="#6A4CA2"
         app:layout_constraintTop_toBottomOf="@id/viewPager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- 📍 Spinner (Floors Dropdown) -->
 
-    <!-- 🏨 Facilities Button -->
-    <Spinner
-        android:id="@+id/mySpinner"
+    <FrameLayout
         android:layout_width="158dp"
         android:layout_height="41dp"
         android:layout_marginTop="16dp"
-        android:background="#211C1C"
-        android:backgroundTint="#6A4CA2"
-        android:popupBackground="#6A4CA2"
-        android:visibility="visible"
-        android:padding="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Spinner -->
+        <Spinner
+            android:id="@+id/mySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/spinner_background"
+            android:paddingStart="12dp"
+            android:paddingEnd="36dp"
+        android:popupBackground="#6A4CA2"
+        android:textColor="#4B0082"
+        android:gravity="center_vertical"/>
+
+        <!-- Arrow icon (your custom image) -->
+        <ImageView
+            android:id="@+id/spinner_arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="10dp"
+            android:src="@android:drawable/arrow_down_float" />
+    </FrameLayout>
+
 
     <Button
         android:id="@+id/button_floor"
         android:layout_width="160dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="80dp"
         android:backgroundTint="#6A4CA2"
         android:text="Select Floor"
         android:textColor="@color/white"
@@ -90,8 +108,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mySpinner"
-        app:layout_constraintVertical_bias="0.075" />
+        app:layout_constraintTop_toBottomOf="@id/tabLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/facilities"
@@ -103,5 +121,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_floor"
         app:layout_constraintVertical_bias="0.302" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
