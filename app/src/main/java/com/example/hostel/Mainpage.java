@@ -102,7 +102,7 @@ public class Mainpage extends AppCompatActivity {
 
                     // Sync TabLayout with ViewPager2
                     new TabLayoutMediator(tabLayout, viewPager,
-                            (tab, position) -> tab.setText(String.valueOf(position + 1))
+                            (tab, position) -> tab.setText("●")
                     ).attach();
 
                     // Load floors into Spinner

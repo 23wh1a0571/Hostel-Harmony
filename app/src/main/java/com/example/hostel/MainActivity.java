@@ -21,9 +21,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.database.*;
 import java.util.Arrays;
 import java.util.List;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
     private Button Next;
@@ -60,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
                     Intent i = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(i);
                     Toast.makeText(MainActivity.this, "Login Selected", Toast.LENGTH_SHORT).show();
-                } else if (id == R.id.nav_admin) {
-                    Toast.makeText(MainActivity.this, "Settings Selected", Toast.LENGTH_SHORT).show();
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
@@ -94,6 +94,12 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setPageTransformer((page, position) -> {
             page.setAlpha(0.5f + (1 - Math.abs(position)) * 0.5f);
         });
+
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+            tab.setText("●");
+        }).attach();
 
         // Adjust Window Insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
