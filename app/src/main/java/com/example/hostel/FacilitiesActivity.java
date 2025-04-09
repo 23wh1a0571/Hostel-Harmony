@@ -64,7 +64,7 @@ public class FacilitiesActivity extends AppCompatActivity {
                         facilitiesViewPager.setAdapter(adapter);
 
                         new TabLayoutMediator(facilitiesTabLayout, facilitiesViewPager,
-                                (tab, position) -> tab.setText(String.valueOf(position + 1))
+                                (tab, position) -> tab.setText("●")
                         ).attach();
                     }
 

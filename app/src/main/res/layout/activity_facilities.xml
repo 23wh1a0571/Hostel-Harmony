@@ -13,16 +13,14 @@
         android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <ImageButton
             android:id="@+id/back"
             android:layout_width="36dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="36dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Back"
             app:srcCompat="?attr/actionModeCloseDrawable" />
+
 
         <TextView
             android:id="@+id/facilityTitle"
@@ -34,43 +32,51 @@
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold" />
-
         <View
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
     </LinearLayout>
 
     <!-- ViewPager2 for images -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/facilitiesViewPager"
         android:layout_width="match_parent"
-        android:layout_height="314dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="10dp" />
-
     <!-- TabLayout immediately below the image -->
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/facilitiesTabLayout"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:tabIndicatorColor="#000"
-        app:tabSelectedTextColor="#000"
-        app:tabTextColor="#888" />
+        android:layout_marginTop="0dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/facilitiesTabLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:tabGravity="center"
+            app:tabMode="fixed"
+            app:tabIndicatorHeight="0dp"
+            app:tabTextColor="#80FFFFFF"
+            app:tabSelectedTextColor="#FFFFFF"
+            android:textSize="36sp"
+            android:background="#6A4CA2" />
+    </FrameLayout>
+
+
 
     <!-- Description below the indicator -->
     <TextView
         android:id="@+id/facilityDescription"
         android:layout_width="match_parent"
-        android:layout_height="201dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:lineSpacingExtra="12dp"
         android:gravity="center"
-        android:justificationMode="inter_word"
-        android:lineSpacingExtra="4dp"
         android:padding="16dp"
         android:text="Loading details..."
         android:textColor="#000000"
-        android:textSize="34sp" />
+        android:textSize="24sp" />
 
 </LinearLayout>

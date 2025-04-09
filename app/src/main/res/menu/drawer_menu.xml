@@ -7,8 +7,5 @@
         android:title="Student Login"
         app:titleTextAppearance="@style/MenuTextStyle"/>
 
-    <item
-        android:id="@+id/nav_admin"
-        android:title="Admin Login"
-        app:titleTextAppearance="@style/MenuTextStyle"/>
+
 </menu>
