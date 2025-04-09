@@ -44,17 +44,7 @@ public class BunkSelectionActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Missing data", Toast.LENGTH_SHORT).show();
         }
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser == null) {
-            Intent loginIntent = new Intent(BunkSelectionActivity.this, LoginActivity.class);
-            loginIntent.putExtra("redirect_to", "BunkSelectionActivity");
-            loginIntent.putExtra("hostelName", hostelName);
-            loginIntent.putExtra("floorName", floorName);
-            loginIntent.putExtra("roomNumber", roomNumber); // only for bunk selection
-            startActivity(loginIntent);
-            finish();
-            return;
-        }
+
 
     }
 
@@ -88,6 +78,20 @@ public class BunkSelectionActivity extends AppCompatActivity {
                             } else {
                                 bunkBtn.setBackgroundColor(Color.parseColor("#FFF5CC"));
                                 bunkBtn.setOnClickListener(v -> {
+                                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                                    if (currentUser == null) {
+                                        Intent loginIntent = new Intent(BunkSelectionActivity.this, LoginActivity.class);
+                                        loginIntent.putExtra("redirect_to", "BunkSelectionActivity");
+                                        loginIntent.putExtra("hostelName", hostel);
+                                        loginIntent.putExtra("floorName", floor);
+                                        loginIntent.putExtra("roomNumber", room); // only for bunk selection
+                                        startActivity(loginIntent);
+                                        finish();
+                                        return;
+                                    }
+
+
+                                    // Logged in → proceed to book
                                     bunkBtn.setEnabled(false); // prevent double taps
                                     FirebaseDatabase.getInstance().getReference("hostels")
                                             .child(hostel).child(floor).child(room + "_bunks").child(bunkName)
@@ -96,7 +100,7 @@ public class BunkSelectionActivity extends AppCompatActivity {
                                                 Toast.makeText(BunkSelectionActivity.this, bunkName + " booked!", Toast.LENGTH_SHORT).show();
                                                 bunkBtn.setBackgroundColor(ContextCompat.getColor(BunkSelectionActivity.this, android.R.color.darker_gray));
 
-                                                // 🔍 Check if all bunks are now booked
+                                                // Check if all bunks are booked
                                                 FirebaseDatabase.getInstance().getReference("hostels")
                                                         .child(hostel).child(floor).child(room + "_bunks")
                                                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -112,7 +116,6 @@ public class BunkSelectionActivity extends AppCompatActivity {
                                                                 }
 
                                                                 if (allBooked) {
-                                                                    // ✅ Mark room as "booked"
                                                                     FirebaseDatabase.getInstance().getReference("hostels")
                                                                             .child(hostel).child(floor).child(room)
                                                                             .child("room_status")
@@ -127,9 +130,11 @@ public class BunkSelectionActivity extends AppCompatActivity {
                                             })
                                             .addOnFailureListener(e -> {
                                                 Toast.makeText(BunkSelectionActivity.this, "Booking failed. Try again.", Toast.LENGTH_SHORT).show();
-                                                bunkBtn.setEnabled(true); // re-enable if failed
+                                                bunkBtn.setEnabled(true);
                                             });
                                 });
+
+                                
                             }
 
                             bunkGrid.addView(bunkBtn);
