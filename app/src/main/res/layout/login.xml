@@ -52,7 +52,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User name :"
+                android:text="Email Id :"
                 android:textColor="#000"
                 android:textSize="18sp" />
 
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#EDE1F1"
-                android:hint="Enter user name"
+                android:hint="Enter email"
                 android:padding="8dp"
                 android:inputType="textEmailAddress" />
 
@@ -109,13 +109,13 @@
     </androidx.cardview.widget.CardView>
 
     <!-- Back icon (optional) -->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="40dp"
-        android:layout_height="26dp"
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:srcCompat="?attr/actionModeCloseDrawable"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
