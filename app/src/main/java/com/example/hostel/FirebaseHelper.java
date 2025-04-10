@@ -71,8 +71,8 @@ public class FirebaseHelper {
         List<String> floors = getFloorsForHostel(name);
         hostelData.put("floors", floors);
 
-        List<String> facilities = getDefaultFacilitiesFor(name);  // NEW
-        hostelData.put("facilities", facilities);                // NEW
+        List<String> facilities = getDefaultFacilitiesFor(name);
+        hostelData.put("facilities", facilities);
 
         String description = getFacilityDescriptionFor(name);
         hostelData.put("facilityDescription", description);
@@ -115,7 +115,7 @@ public class FirebaseHelper {
             case "Saradha":
                 return Arrays.asList("saradha_f1", "saradha_f2", "saradha_f3", "saradha_f4");
             case "Seethamma":
-                return Arrays.asList("seethammaf1", "seethammaf2", "seethammaf3", "seethammaf4");
+                return Arrays.asList("seethammaf2", "seethammaf12", "seethammaf6");
             case "Sravani":
                 return Arrays.asList("samyutha_f6", "samyutha_f7", "samyutha_f8");
             default:
@@ -235,7 +235,7 @@ public class FirebaseHelper {
             case "Saradha":
                 return Arrays.asList("saradha", "samyutha", "saraswathi");
             case "Seethamma":
-                return Arrays.asList("seethamma", "seethammar1", "seethammar2", "seethammar3");
+                return Arrays.asList("seethamma", "seethammar1", "seethammar2", "seethammar6");
             case "Sravani":
                 return Arrays.asList("seethammar5", "seethammar4", "seethammaf3");
             default:

@@ -93,11 +93,11 @@ public class MainActivity extends AppCompatActivity {
         // Scrolling Images Setup
         ViewPager2 viewPager = findViewById(R.id.viewPager);
         List<Integer> imageList = Arrays.asList(
-                R.drawable.samyutha,
-                R.drawable.saradha,
                 R.drawable.sravani,
+                R.drawable.seethamma,
                 R.drawable.saraswathi,
-                R.drawable.seethamma
+                R.drawable.samyutha,
+                R.drawable.saradha
         );
         viewPager.setAdapter(new ImageAdapter(this, imageList));
         viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
