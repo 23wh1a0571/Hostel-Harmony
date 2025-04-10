@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailEditText, passwordEditText;
     private Button signInButton;
     private TextView registerText;
+    private ImageButton back;
 
     private FirebaseAuth mAuth;
 
@@ -32,11 +34,16 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         signInButton = findViewById(R.id.signInButton);
         registerText = findViewById(R.id.registerText);
+        back = findViewById(R.id.imageButton); // 🔙 Back arrow (ImageButton)
+
+        back.setOnClickListener(v -> {
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(i);
+        });
 
         signInButton.setOnClickListener(view -> {
             String email = emailEditText.getText().toString().trim();
