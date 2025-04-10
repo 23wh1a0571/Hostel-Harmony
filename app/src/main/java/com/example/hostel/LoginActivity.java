@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                                 redirectIntent.putExtra("floorName", floorName);
                                 redirectIntent.putExtra("roomNumber", roomNumber);
                             } else {
-                                redirectIntent = new Intent(LoginActivity.this, HomeActivity.class); // default fallback
+                                redirectIntent = new Intent(LoginActivity.this, MainActivity.class); // default fallback
                             }
 
                             startActivity(redirectIntent);
