@@ -22,6 +22,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.*;
 import java.util.Arrays;
 import java.util.List;
@@ -62,6 +64,15 @@ public class MainActivity extends AppCompatActivity {
                     Intent i = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(i);
                     Toast.makeText(MainActivity.this, "Login Selected", Toast.LENGTH_SHORT).show();
+                }
+                else if(id == R.id.nav_logout) {
+                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                    if (currentUser != null) {
+                        FirebaseAuth.getInstance().signOut();
+                        Toast.makeText(MainActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(MainActivity.this, "User not logged in", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;

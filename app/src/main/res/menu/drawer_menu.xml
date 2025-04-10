@@ -6,6 +6,9 @@
         android:id="@+id/nav_student"
         android:title="Student Login"
         app:titleTextAppearance="@style/MenuTextStyle"/>
-
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout"
+        app:titleTextAppearance="@style/MenuTextStyle"/>
 
 </menu>

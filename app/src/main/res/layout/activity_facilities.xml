@@ -41,9 +41,11 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/facilitiesViewPager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp" />
+        android:layout_height="250dp"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/hostel_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
     <!-- TabLayout immediately below the image -->
     <FrameLayout
         android:layout_width="match_parent"
