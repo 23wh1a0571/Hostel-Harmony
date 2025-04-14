@@ -33,7 +33,7 @@ import java.util.List;
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.imageView.setImageResource(images.get(position));
 
-            holder.imageView.invalidate(); // ✅ Forces redraw
+            holder.imageView.invalidate();
         }
 
         @Override

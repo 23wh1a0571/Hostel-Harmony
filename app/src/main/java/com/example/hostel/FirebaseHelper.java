@@ -107,17 +107,17 @@ public class FirebaseHelper {
     public static List<String> getDefaultFacilitiesFor(String hostelName) {
         switch (hostelName) {
             case "Soudamini":
-                return Arrays.asList("saraswathif5", "saraswathif6", "saraswathif7", "saraswathif8");
+                return Arrays.asList("samyutha_f2", "samyutha_f1", "soudhamanir1", "soudhamanir3");
             case "Samyutha":
-                return Arrays.asList("samyutha_f1", "samyutha_f2", "samyutha_f3", "samyutha_f4", "samyutha_f5");
+                return Arrays.asList("samyutha_f2", "samyutha_f8", "samyutha_f1", "samyutha_f5");
             case "Saraswathi":
-                return Arrays.asList("saraswathif1", "saraswathif2", "saraswathif3", "saraswathif4");
+                return Arrays.asList("saraswathir2", "saraswathif3");
             case "Saradha":
-                return Arrays.asList("saradha_f1", "saradha_f2", "saradha_f3", "saradha_f4");
+                return Arrays.asList("saradha_r9", "saradha_f4", "saradha_f3");
             case "Seethamma":
                 return Arrays.asList("seethammaf2", "seethammaf12", "seethammaf6");
             case "Sravani":
-                return Arrays.asList("samyutha_f6", "samyutha_f7", "samyutha_f8");
+                return Arrays.asList("sravanir1", "sravanir4", "sravanir2", "sravanir3", "sravanif3");
             default:
                 return Arrays.asList("seethammaf10", "seethammaf11");
         }
@@ -227,17 +227,17 @@ public class FirebaseHelper {
     public static List<String> getDefaultImagesFor(String hostelName) {
         switch (hostelName) {
             case "Soudamini":
-                return Arrays.asList("seethammar4", "samyutha", "sravani");
+                return Arrays.asList("soudhamani", "soudhamanir5", "soudhamanir2", "soudhamanir4");
             case "Samyutha":
-                return Arrays.asList("samyutha_r1", "samyutha_r2", "samyutha_r3");
+                return Arrays.asList("samyutha", "samyutha_r3", "samyutha_f1", "samyutha_f5", "samyutha_f7");
             case "Saraswathi":
-                return Arrays.asList("saraswathir1", "saraswathir2", "saraswathir3");
+                return Arrays.asList("saraswathi", "saraswathif3", "saraswathir6", "saraswathir2");
             case "Saradha":
                 return Arrays.asList("saradha", "samyutha", "saraswathi");
             case "Seethamma":
                 return Arrays.asList("seethamma", "seethammar1", "seethammar2", "seethammar6");
             case "Sravani":
-                return Arrays.asList("seethammar5", "seethammar4", "seethammaf3");
+                return Arrays.asList("sravani", "sravanif1", "sravanif2", "sravanif4", "sravanir3");
             default:
                 return Arrays.asList("seethamma", "sravani", "saraswathi");
         }

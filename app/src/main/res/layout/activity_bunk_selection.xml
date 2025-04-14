@@ -44,4 +44,43 @@
             android:layout_gravity="center" />
 
     </LinearLayout>
+    <!-- Legend Section (Available/Booked) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFF5CC" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Available "
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:background="#D3D3D3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Booked "
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+
 </FrameLayout>

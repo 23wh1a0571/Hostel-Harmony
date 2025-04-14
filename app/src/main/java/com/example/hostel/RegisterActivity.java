@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         btnRegister = findViewById(R.id.btnRegister);
         btnLogin = findViewById(R.id.btnLogin);
-        backArrow = findViewById(R.id.imageButton); // 🔙 Arrow ImageButton
+        backArrow = findViewById(R.id.imageButton);
 
         backArrow.setOnClickListener(v -> {
             onBackPressed(); // Or use finish() if you prefer direct activity closing
